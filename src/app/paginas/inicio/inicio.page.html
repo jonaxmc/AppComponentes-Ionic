@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-icon name="menu" size="large" (click)="abrirMenu()"></ion-icon>
+        <ion-title>Home</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-menu side="start" type="push" contentId="main">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail>
+                <ion-icon slot="start" [name]="cp.icono"></ion-icon>
+                <ion-label>{{cp.name}}</ion-label>
+            </ion-item>
+            
+        </ion-list>
+    </ion-content>
+  </ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content >
+    
+    <h1>BIENVENIDOS</h1>
+    <ion-button (click)="abrirModal()" expand="full" color="primary" shape="round">
+        Registrar
+    </ion-button>
+
+</ion-content>

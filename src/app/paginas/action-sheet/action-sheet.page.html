@@ -1,0 +1,46 @@
+<app-header titulo="Action-Sheet"></app-header>
+
+<ion-content>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="share-social-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button size="small" mode="ios"> 
+                <ion-icon color="primary" name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-youtube"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start">
+            <ion-fab-button size="small" >
+                <ion-icon name="save-outline"></ion-icon>
+                <ion-icon name="cut-outline"></ion-icon>
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-fab-button>
+
+        </ion-fab-list>
+
+    </ion-fab>
+    <ion-button expand="full" color="primary" (click)="presentActionSheet()">
+        Mostrar funcion de Action-Sheet
+    </ion-button>
+
+    <ion-list>
+        <ion-item *ngFor="let i of datos; let index=index">
+            <ion-label>Item {{index+1}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll threshold="150px" (ionInfinite)="loadDatos($event)">
+        <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Cargando Datos..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <ion-footer>
+        <ion-toolbar color="primary">
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-icon name="logo-youtube"></ion-icon>
+        </ion-toolbar>
+    </ion-footer>
+</ion-content>
